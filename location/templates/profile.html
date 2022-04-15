@@ -1,0 +1,25 @@
+{%extends "base.html"%}
+{% load static %}
+{% block content %}
+{{block.super}}
+<div class="container-fluid">
+    <div class="row profile">
+        {% if user.profile.profile_photo %}
+        <img src="{{user.profile.profile_photo.url}}" class="img-thumbnail" width="500px" alt="profile_photo">
+        {%else%}
+        <img src="https://st.depositphotos.com/1537427/3571/v/950/depositphotos_35717211-stock-illustration-vector-user-icon.jpg" width="250px"  alt="profile photo">
+        {% endif %}
+    </div>
+    <div class="text-center"><strong><em>{{user}}</em></strong></div>
+    <br>
+    <div class="row text-center">
+        {% if user.profile.bio %}
+        <p><strong><em>{{user.profile.bio}}</em></strong></p>
+        {%else%}
+        <p>No Bio</p>
+        {% endif %}
+    </div>
+    <hr>
+</div>
+
+{% endblock %}

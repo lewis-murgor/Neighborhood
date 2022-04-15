@@ -1,0 +1,37 @@
+<nav class="navbar navbar-inverse" style="background-color: powderblue;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand award" style="color: white;" href="{% url 'index' %}"><strong>Neighborhoods</strong></a>
+        </div>
+        <div class="col-sm-4 col-md-2 navbar-right">
+            {% if user.is_authenticated %}
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">{{user}}
+                            <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{%url 'index'%}">Home</a>
+                        </li>
+                        <li>
+                            <a href="{%url 'profile'%}">Profile</a>
+                        </li>
+                        <li>
+                            <a href="/accounts/password_change">Change Password</a>
+                        </li>
+                        <li>
+                            <a href="/accounts/logout">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            {% else %}
+            <li>
+                <a class='btn btn-default' href="/accounts/login">Login</a>
+            </li>
+
+            {% endif %}
+        </div>
+    </div>
+</nav>
