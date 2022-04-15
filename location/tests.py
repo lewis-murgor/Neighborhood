@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Neighborhood,Business
+from .models import Neighborhood,Business,Profile
 
 # Create your tests here.
 
@@ -65,3 +65,26 @@ class BusinessTestClass(TestCase):
     def test_find_business(self):
         business = Business.find_business(1)
         self.assertTrue(len(business) == 0)
+
+# Create your tests here.
+class ProfileTestClass(TestCase):
+    # Set up method
+    def setUp(self):
+        self.lewis=Profile(bio='Lewis Murgor')
+
+    # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.lewis,Profile))
+
+    # Testing Save Method
+    def test_save_profile(self):
+        self.lewis.save_profile()
+        profile = Profile.objects.all()
+        self.assertTrue(len(profile) > 0)
+
+    # Testing Delete Method
+    def test_delete_profile(self):
+        self.lewis.save_profile()
+        self.lewis.delete_profile()
+        profile = Profile.objects.all()
+        self.assertTrue(len(profile) == 0)
