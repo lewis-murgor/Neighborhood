@@ -55,3 +55,21 @@ class Business(models.Model):
     def find_business(cls,id):
         business = cls.objects.filter(id = id)
         return business
+
+class Profile(models.Model):
+    profile_photo = models.ImageField(upload_to = 'photos/')
+    bio = models.TextField()
+    user = models.OneToOneField(User,on_delete=models.CASCADE,null=True)
+
+    def __str__(self):
+        return self.bio
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
+    def update_profile(self, updated_profile):
+        self.profile = updated_profile
+        self.save()
