@@ -1,8 +1,21 @@
 <nav class="navbar navbar-inverse" style="background-color: powderblue;">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand award" style="color: white;" href="{% url 'index' %}"><strong>Neighborhoods</strong></a>
+            <a class="navbar-brand hood" style="color: white;" href="{% url 'index' %}"><strong>Neighborhoods</strong></a>
+            <a class="navbar-brand hood" style="color: white;" href="{% url 'post' %}"><strong>Posts</strong></a>
         </div>
+        <!-- Adding a search form  -->
+        <div class="col-sm-4 col-md-4">
+            <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search business" name="business">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- search form end -->
         <div class="col-sm-4 col-md-2 navbar-right">
             {% if user.is_authenticated %}
             <ul>
@@ -19,6 +32,9 @@
                         </li>
                         <li>
                             <a href="{%url 'create-neighborhood'%}">Create Neighborhood</a>
+                        </li>
+                        <li>
+                            <a href="{%url 'create-post'%}">Create Post</a>
                         </li>
                         <li>
                             <a href="/accounts/password_change">Change Password</a>

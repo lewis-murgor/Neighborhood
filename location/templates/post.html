@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+{% block content %}
+{{block.super}}
+<div class="container-fluid">
+    <h1>Posts</h1>
+    {% for post in posts %}
+    <div class="col-md-4 col-sm-12">
+        <div class="panel panel-default">
+            <img src="{{post.photo.url}}" class="img-responsive" alt="photo">
+            <div class="panel-body details">
+                <p><strong><em>{{post.name}}</em></strong></p>
+                <p><strong><em>{{post.description}}</em></strong></p>
+                <p><strong><em>Posted on:</em></strong>{{post.date|date:"l d F Y, H:i"}}</p>
+                <p><strong><em>{{post.neighborhood}}</em></strong></p>
+            </div>
+        </div>    
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

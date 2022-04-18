@@ -3,7 +3,7 @@
 {% block content %}
 {{block.super}}
 <div class="container-fluid">
-    <h1>My neighborhood</h1>
+    <h1>Neighborhoods</h1>
     {% for hood in hoods %}
     <div class="col-md-4 col-sm-12">
         <div class="panel panel-default">
@@ -12,15 +12,25 @@
             </div>
             <div class="panel-body details">
                 <p><strong><em> Location:</em></strong>{{hood.location}}</p>
-                <p><strong><em>Occupants_count:</em></strong>{{hood.occupants_count}}</p>
                 <p><strong><em>health-contact:</em></strong>{{hood.health_contact}}</p>
                 <p><strong><em>police-contact:</em></strong>{{hood.police_contact}}</p>
             </div>
-            <div class="panel-footer">
+            <div class="panel-footer" style="background-color: black;">
                 <a href="{% url 'create-business' hood.id %}"><button class="btn btn-success">Businesses</button></a>
+                <div class="join">
+                    <form action="{% url 'join' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="neighborhood_id" value="{{ hood.id }}"> 
+                        {% if user not in hood.joins.all %}
+                        <button class="btn btn-success" type="submit">Join</button> 
+                        {% else %}
+                        <button class="btn btn-danger" type="submit">Leave</button> 
+                        {% endif %}
+                    </form>
+                </div>
+                
             </div>
         </div>
-        
     </div>
     {% endfor %}
 </div>
