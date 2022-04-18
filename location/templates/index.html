@@ -3,7 +3,26 @@
 {% block content %}
 {{block.super}}
 <div class="container-fluid">
-    <h1>Welcome to my neighborhood</h1>
+    <h1>My neighborhood</h1>
+    {% for hood in hoods %}
+    <div class="col-md-4 col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="background-color: black;">
+                <h3 style="color: white;">{{hood.name}}</h3>
+            </div>
+            <div class="panel-body details">
+                <p><strong><em> Location:</em></strong>{{hood.location}}</p>
+                <p><strong><em>Occupants_count:</em></strong>{{hood.occupants_count}}</p>
+                <p><strong><em>health-contact:</em></strong>{{hood.health_contact}}</p>
+                <p><strong><em>police-contact:</em></strong>{{hood.police_contact}}</p>
+            </div>
+            <div class="panel-footer">
+                <a href="{% url 'create-business' hood.id %}"><button class="btn btn-success">Businesses</button></a>
+            </div>
+        </div>
+        
+    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
