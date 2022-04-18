@@ -2,6 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+JOIN_CHOICE = (
+    ('Join', 'Join'),
+    ('Leave', 'Leave'),
+)
+
 class Neighborhood(models.Model):
     name = models.CharField(max_length =100)
     location = models.CharField(max_length =60)
@@ -56,6 +61,11 @@ class Business(models.Model):
         business = cls.objects.filter(id = id)
         return business
 
+    @classmethod
+    def search_by_name(cls,name):
+        business = cls.objects.filter(name__icontains=name)
+        return business
+
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to = 'photos/')
     bio = models.TextField()
@@ -85,3 +95,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.name
+
+class Join(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
+    value = models.CharField(choices=JOIN_CHOICE,default='Join',max_length=10)
+
+    def __str__(self):
+        return self.neighborhood
