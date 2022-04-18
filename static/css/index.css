@@ -8,3 +8,16 @@
 .details {
     text-align: center;
 }
+h1 {
+    text-align: center;
+    color: darkgoldenrod;
+}
+.join {
+    float: right;
+}
+.hood {
+    font-family: Bad Script;
+}
+.edit {
+    text-align: center;
+}
