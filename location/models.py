@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Neighborhood(models.Model):
     name = models.CharField(max_length =100)
     location = models.CharField(max_length =60)
-    occupants_count = models.IntegerField()
+    occupants_count = models.IntegerField(null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     health_contact = models.IntegerField()
     police_contact = models.IntegerField()
@@ -60,6 +60,7 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to = 'photos/')
     bio = models.TextField()
     user = models.OneToOneField(User,on_delete=models.CASCADE,null=True)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.bio
@@ -73,3 +74,14 @@ class Profile(models.Model):
     def update_profile(self, updated_profile):
         self.profile = updated_profile
         self.save()
+
+class Post(models.Model):
+    name = models.CharField(max_length =100)
+    photo = models.ImageField(upload_to = 'photos/',null=True)
+    description = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    neighborhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE,null=True)
+
+    def __str__(self):
+        return self.name
