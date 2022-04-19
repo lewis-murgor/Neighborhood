@@ -14,6 +14,7 @@ class Neighborhood(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     health_contact = models.IntegerField()
     police_contact = models.IntegerField()
+    joins = models.ManyToManyField(User,blank=True,related_name='joins')
 
     def __str__(self):
         return self.name
@@ -39,6 +40,7 @@ class Neighborhood(models.Model):
 
 class Business(models.Model):
     name = models.CharField(max_length =100)
+    image = models.ImageField(upload_to = 'photos/',default='default.png')
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     neighborhood = models.ForeignKey(Neighborhood,on_delete=models.CASCADE)
     email = models.EmailField()
