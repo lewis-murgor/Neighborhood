@@ -5,10 +5,15 @@
 #### By **Lewis Murgor**
 
 ## Below is a part of the project.
+### Neighborhoods
 <img src="static/images/neighborhood.png">
 
+### Posts
+<img src="static/images/posts.png">
+
+
 ## Description
-This is a neighborhood website that requires a user to sign in to the application to start using. A user can create a neighborhood or join an existing neighborhood. He/she can view businesses in the neighborhoods and also create businesses. A user can create posts for other users to see.
+This is a neighborhood website that requires a user to sign in to the application to start using. A user can create a neighborhood or join an existing neighborhood. He/she can view businesses in the neighborhoods and also create businesses.He/she can search for businesses available. A user can create posts for other users to see.
 
 ## Setup/Installation Requirements
 * You can clone this repository by running 'git clone https://github.com/lewis-murgor/Neighborhood.git' in your terminal.
@@ -20,7 +25,7 @@ This is a neighborhood website that requires a user to sign in to the applicatio
 The application has no known bugs.
 
 ## Live Site
-The live link of the project is  
+The live link of the project is  https://neighborhood-29.herokuapp.com/
 
 ## Technologies Used
 * Python
