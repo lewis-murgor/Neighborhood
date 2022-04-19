@@ -1,0 +1,41 @@
+
+.business-details {
+    background-color: rgba(0, 0, 0, 0.815);
+    color: white;
+}
+.form {
+    background-color: black;
+    color: white;
+}
+.businesses {
+    background-image: url('https://businesstoday.co.ke/wp-content/uploads/2019/08/A-fruit-market_Euractiv.jpg');
+    background-size: 1290px 510px;
+}
+h3 {
+    color: darkgoldenrod;
+}
+.business {
+    background-color: rgba(82, 182, 82, 0.692);
+}
+.profile {
+    text-align: center;
+}
+.join {
+    float: right;
+}
+.edit {
+    text-align: center;
+}
+.hood {
+    font-family: Bad Script;
+}
+.panel-heading {
+    text-align: center;
+    font-family: Kalam;
+}
+.details {
+    text-align: center;
+}
+.profile-page {
+    background-color: rgba(245, 245, 245, 0.479);
+}
