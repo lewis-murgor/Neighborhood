@@ -4,7 +4,7 @@ from .models import Neighborhood,Business,Post,Profile
 class NewNeighborhoodForm(forms.ModelForm):
     class Meta:
         model=Neighborhood
-        exclude=['user','occupants_count']
+        exclude=['user','occupants_count','joins']
 
 class NewBusinessForm(forms.ModelForm):
     class Meta:
