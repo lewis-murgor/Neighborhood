@@ -5,7 +5,7 @@
 #### By **Lewis Murgor**
 
 ## Below is a part of the project.
-<img src="">
+<img src="static/images/neighborhood.png">
 
 ## Description
 This is a neighborhood website that requires a user to sign in to the application to start using. A user can create a neighborhood or join an existing neighborhood. He/she can view businesses in the neighborhoods and also create businesses. A user can create posts for other users to see.
@@ -31,7 +31,7 @@ The live link of the project is
 ## Support and contact details
 You can contact me through the email kiplagatlewis29@gmail.com
 ### License
-You can check the licence [here]()
+You can check the licence [here](https://github.com/lewis-murgor/Neighborhood/blob/master/Licence)
 ##
 Copyright (c) 2022 
 ##
