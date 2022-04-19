@@ -15,7 +15,7 @@ def index(request):
 @login_required(login_url='/accounts/login/')
 def profile(request):
     current_user = request.user
-    neighborhood = Neighborhood.objects.filter(user_id = current_user)
+    neighborhood = Neighborhood.objects.filter(user = current_user)
     profile = Profile.objects.filter(user_id = current_user)
 
 
